@@ -1,0 +1,99 @@
+@import url(http://www.fontspace.com/weedhopper-press/dkc-forever?text=);
+html {
+  height: 100%;
+}
+
+#home-image {
+  width: 100%;
+  height: 95%;
+}
+
+.intro-wrapper {
+  width: 100%;
+  overflow: hidden;
+  height: 550px;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+  }
+  
+  body {
+   height: 90vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color:#333;
+  }
+  
+  .container h1{
+   color:black;
+   text-align:center;
+   padding:20px;
+   font-size:40px;
+   font-family: 'Roboto', sans-serif;
+  }
+  
+  
+  .facebook,
+  .twitter,
+  .youtube,
+  .pinterest,
+  .instagram,
+  .tumblr{
+    display: inline-block;
+    margin: 10px;
+    transition: 1s;
+    border-radius:5px;
+  }
+  
+  .fa-facebook,
+  .fa-twitter,
+  .fa-youtube,
+  .fa-pinterest-p,
+  .fa-instagram,
+  .fa-tumblr{
+    padding: 10px;
+    width: 80px;
+    text-align: center;
+    color: white;
+  }
+  
+  .youtube:hover,
+  .facebook:hover,
+  .twitter:hover,
+  .pinterest:hover,
+  .instagram:hover,
+  .tumblr:hover{
+    transform: scale(1.1, 1.1);
+  }
+  
+  
+  /*Colors*/
+  
+  .pinterest {
+    background-color: #BD081C;
+  }
+  
+  .facebook {
+    background-color: #3b5998;
+  }
+  
+  .twitter {
+    background-color: #5EA9DD;
+  }
+  
+  .youtube {
+    background-color: #E62117;
+  }
+  
+  .instagram {
+    background: linear-gradient(60deg, #F9C556, #F97621, #EA484C, #D72F78, #A93AB5, #5B62D1);
+  }
+  
+  .tumblr{
+    background-color:#395976;
+  }
+
