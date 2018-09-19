@@ -10,11 +10,11 @@
 <div class="container">
     <agm-map [latitude]="lat" [longitude]="lng">
         <agm-marker [iconUrl]="'assets/marker_your_location.png'" [latitude]="lat" [longitude]="lng"></agm-marker>
-        <agm-marker *ngFor="let spot of spots" [latitude]="spot.latitude" [longitude]="spot.longitude"></agm-marker>
+        <agm-marker *ngFor="let spot of spots; let i = index" [latitude]="spot.latitude" [longitude]="spot.longitude"  (markerClick)="clickedSpot(spot.index)" ></agm-marker>
     </agm-map>
 </div>
 <div class="container">
-  <p>
-    L'îcone <img src="assets/marker_your_location.png" alt=""> représente votre emplacement !
-  </p>
+    <footer class="blockquote-footer">
+        L'îcone <img src="assets/marker_your_location_little.png" alt=""> représente votre emplacement !
+    </footer>
 </div>

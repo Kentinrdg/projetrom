@@ -29,6 +29,7 @@
           </select>
     </div>
     <div class="form-group">
+      <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
       <label for="labelMap">Rentrer un lieu (en cliquant sur la map ou alors en rentrant une latitude et longitude) :</label> 
       <agm-map [latitude]="lat" [longitude]="lng" (mapClick)="onChoseLocation($event)">
         <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>

@@ -27,7 +27,7 @@ const appRoutes: Routes = [
   { path: 'aboutus', component: AboutUsComponent},
   { path: 'createactivity', canActivate: [AuthGuardService], component: CreateactivityComponent},
   { path: 'showactivity', canActivate: [AuthGuardService], component: ShowactivityComponent},
-  { path: 'spot/:id', canActivate: [AuthGuardService], component: SinglespotComponent},
+  { path: 'singlespot/:id', canActivate: [AuthGuardService], component: SinglespotComponent},
   { path: 'not-found', component: NotFoundComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   //Mettre cela à la fin est nécessaire 
@@ -54,7 +54,8 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     HttpClientModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCLbdTLUH4Bjck5jF9oruVdMEd9eOeDW14'
+      apiKey: 'AIzaSyCLbdTLUH4Bjck5jF9oruVdMEd9eOeDW14',
+      libraries: ["places"]
     }),
     AgmJsMarkerClustererModule
   ],

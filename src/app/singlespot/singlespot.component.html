@@ -1,3 +1,41 @@
-<p>
-  singlespot works!
-</p>
+<div class="row">
+    <div class="col-xs-12">
+        <blockquote class="blockquote">
+            <footer class="blockquote-footer"><cite>Titre du spot :</cite></footer>
+          <h2>{{ spot.titleSpot }}</h2>
+          </blockquote>
+
+          <blockquote class="blockquote">
+              <footer class="blockquote-footer"><cite>Descritpion du spot :</cite></footer>    
+              <h4>{{ spot.description }}</h4>
+          </blockquote>
+
+          <blockquote class="blockquote">
+              <footer class="blockquote-footer"><cite>Type du spot :</cite></footer>    
+              <h4>{{ spot.typeSpot }}</h4>
+          </blockquote>
+
+          <blockquote class="blockquote">
+              <footer class="blockquote-footer"><cite>Coordonnées du spot :</cite></footer>    
+              <h4>Latitude : {{ spot.latitude }}</h4>
+              <h4>Longitude : {{ spot.longitude }}</h4>
+          </blockquote>
+
+          <blockquote class="blockquote">
+              <footer class="blockquote-footer"><cite >Emplacement sur la carte :</cite></footer> 
+              <agm-map [latitude]="lat" [longitude]="lng">
+                  <agm-marker  [iconUrl]="'assets/marker_your_location.png'" [latitude]="lat" [longitude]="lng"></agm-marker>
+                  <agm-marker [latitude]="spot.latitude" [longitude]="spot.longitude"></agm-marker>
+              </agm-map> 
+              <footer class="blockquote-footer">
+                  L'îcone <img src="assets/marker_your_location_little.png" alt=""> représente votre emplacement !
+              </footer>
+          </blockquote>
+
+          <blockquote class="blockquote">
+              <footer class="blockquote-footer"><cite>Photo du lieu :</cite></footer> 
+              <img style="max-width:400px;" *ngIf="spot.photo" [src]="spot.photo">
+          </blockquote>
+      <button class="btn btn-default" (click)="onBack()">Retour</button>
+    </div>
+  </div>

@@ -96,7 +96,8 @@ uploadFile(file: File) {
           reject();
         },
         () => {
-          resolve(upload.snapshot.downloadURL);
+        //  resolve(upload.snapshot.downloadURL);
+        resolve(upload.snapshot.ref.getDownloadURL());
         }
       );
     }

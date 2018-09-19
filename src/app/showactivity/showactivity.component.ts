@@ -44,6 +44,8 @@ export class ShowactivityComponent implements OnInit {
            snapshot.forEach((childSnapshot) => {
              var key = childSnapshot.key;
              var childData = childSnapshot.val();
+
+        /*
           console.log('Début de spot');
           console.log(childData.titleSpot);
           console.log(childData.description);
@@ -51,8 +53,9 @@ export class ShowactivityComponent implements OnInit {
           console.log(childData.latitude);
           console.log(childData.longitude);
           console.log('Fin de spot');
+        */
 
-          this.spots.push(new Spot(childData.titleSpot,
+          this.spots.push(new Spot(childData.index, childData.titleSpot,
            childData.description, childData.typeSpot, childData.latitude, childData.longitude));
            });
 
@@ -65,27 +68,8 @@ export class ShowactivityComponent implements OnInit {
    );
   }
 
- /** tryMyArray() {
-    console.log('tryMyArray ! : ');
-    for (let entry of this.spots) {
-      console.log(entry); // 1, "string", false
-  }
-  }**/
-
-
-
-  handlerData(snapshot) {
-    this.titleSpot = snapshot.val().titleSpot;
-    this.description = snapshot.val().description;
-    this.typeSpot = snapshot.val().typeSpot;
-    this.latitude = snapshot.val().latitude;
-    this.longitude = snapshot.val().longitude;
-
-    console.log(this.titleSpot);
-    console.log(this.description);
-    console.log(this.typeSpot);
-    console.log(this.latitude);
-    console.log(this.longitude);
+  clickedSpot(id: number) {
+    this.router.navigate(['/singlespot', id]);
   }
 
   ngOnInit() {
@@ -96,12 +80,10 @@ export class ShowactivityComponent implements OnInit {
     this.spotSubscription = this.spotService.spotSubject.subscribe(
       (spots: Spot[]) => {
         this.spot = spots;
-        console.log(spots.length);
+        //console.log(spots.length);
       }
     );
     this.spotService.emitSpots();
-    //this.getAndCreateAllLocation();
-
   }
 
 
