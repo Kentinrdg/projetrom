@@ -3,97 +3,167 @@ html {
   height: 100%;
 }
 
-#home-image {
-  width: 100%;
-  height: 95%;
+
+.btn-default {
+  color: #fff;
+  background-color: #0495c9;
+  border-color: #357ebd; /*set the color you want here*/
+}
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open>.dropdown-toggle.btn-default {
+  color: #fff;
+  background-color: #00b3db;
+  border-color: #285e8e; /*set the color you want here*/
 }
 
-.intro-wrapper {
-  width: 100%;
-  overflow: hidden;
-  height: 550px;
+h1 {
+  font-size: 57.6px;
+  line-height: 64px;
+  font-family: 'Oswald';
+  color: black;
+  height: 40px;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  margin-top: -15px;
+  margin-left: -165px;
+
+  /** Animation for the title ShareYourSpot **/
+  animation: 4s linear 0s normal none infinite opacity;
+  -webkit-animation: 4s ease-out 0s normal none infinite opacity;
+  -moz-animation: 4s ease-out 0s normal none infinite opacity;
+  -o-animation: 4s ease-out 0s normal none infinite opacity;
+}
+h1:before {
+  content: '"';
+  position: absolute;
+  left: -30px;
+  line-height: 64px;
+}
+h1:after {
+  content: '"';
+  position: absolute;
+  right: -30px;
+  line-height: 64px;
 }
 
-* {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-  }
-  
-  body {
-   height: 90vh;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   background-color:#333;
-  }
-  
-  .container h1{
-   color:black;
-   text-align:center;
-   padding:20px;
-   font-size:40px;
-   font-family: 'Roboto', sans-serif;
-  }
-  
-  
-  .facebook,
-  .twitter,
-  .youtube,
-  .pinterest,
-  .instagram,
-  .tumblr{
-    display: inline-block;
-    margin: 10px;
-    transition: 1s;
-    border-radius:5px;
-  }
-  
-  .fa-facebook,
-  .fa-twitter,
-  .fa-youtube,
-  .fa-pinterest-p,
-  .fa-instagram,
-  .fa-tumblr{
-    padding: 10px;
-    width: 80px;
-    text-align: center;
-    color: white;
-  }
-  
-  .youtube:hover,
-  .facebook:hover,
-  .twitter:hover,
-  .pinterest:hover,
-  .instagram:hover,
-  .tumblr:hover{
-    transform: scale(1.1, 1.1);
-  }
-  
-  
-  /*Colors*/
-  
-  .pinterest {
-    background-color: #BD081C;
-  }
-  
-  .facebook {
-    background-color: #3b5998;
-  }
-  
-  .twitter {
-    background-color: #5EA9DD;
-  }
-  
-  .youtube {
-    background-color: #E62117;
-  }
-  
-  .instagram {
-    background: linear-gradient(60deg, #F9C556, #F97621, #EA484C, #D72F78, #A93AB5, #5B62D1);
-  }
-  
-  .tumblr{
-    background-color:#395976;
+h1:after {
+  font-family: 'Oswald';
+  color: black;
+  font-weight: 500;
+  font-size: 64px;
+  animation: 4s linear 0s normal none infinite opacity;
+  -webkit-animation: 4s ease-out 0s normal none infinite opacity;
+  -moz-animation: 4s ease-out 0s normal none infinite opacity;
+  -o-animation: 4s ease-out 0s normal none infinite opacity;
+}
+h1:before {
+  font-family: 'Oswald';
+  color: black;
+  font-weight: 500;
+  font-size: 64px;
+  animation: 4s linear 0s normal none infinite opacity;
+  -webkit-animation: 4s ease-out 0s normal none infinite opacity;
+  -moz-animation: 4s ease-out 0s normal none infinite opacity;
+  -o-animation: 4s ease-out 0s normal none infinite opacity;
+}
+
+@-webkit-keyframes opacity {
+  0% {
+    opacity: 0;
   }
 
+  25% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 2;
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 2;
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes change {
+  0% {
+    margin-top: 0;
+  }
+  15% {
+    margin-top: 0;
+  }
+  25% {
+    margin-top: -64px;
+  }
+  40% {
+    margin-top: -64px;
+  }
+  50% {
+    margin-top: -128px;
+  }
+  65% {
+    margin-top: -128px;
+  }
+  75% {
+    margin-top: -64px;
+  }
+  85% {
+    margin-top: -64px;
+  }
+  100% {
+    margin-top: 0;
+  }
+}
+@keyframes change {
+  0% {
+    margin-top: 0;
+  }
+  15% {
+    margin-top: 0;
+  }
+  25% {
+    margin-top: -64px;
+  }
+  40% {
+    margin-top: -64px;
+  }
+  50% {
+    margin-top: -128px;
+  }
+  65% {
+    margin-top: -128px;
+  }
+  75% {
+    margin-top: -64px;
+  }
+  85% {
+    margin-top: -64px;
+  }
+  100% {
+    margin-top: 0;
+  }
+}

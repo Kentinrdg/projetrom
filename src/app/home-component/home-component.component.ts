@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import * as firebase from 'firebase';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-component',
@@ -7,9 +10,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponentComponent implements OnInit {
 
-  constructor() { }
+  isAuth: boolean;
+
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
+    firebase.auth().onAuthStateChanged(
+      (user) => {
+        if (user) {
+          this.isAuth = true;
+        } else {
+          this.isAuth = false;
+        }
+      }
+    );
+  }
+
+  goToSignUp() {
+    this.router.navigate(['signup']);
+  }
+
+  goToConnexion() {
+    this.router.navigate(['authentification']);
   }
 
 }

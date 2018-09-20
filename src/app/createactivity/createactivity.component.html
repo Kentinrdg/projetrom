@@ -1,9 +1,13 @@
+<br>
+<!-- Start jumbotron -->
+<div class="jumbotron "  style="background-color: white; color: black">
+<!-- Start container -->
 <div class="container">
   <header class="page-header">
     <h3>Proposez un spot</h3>
   </header>
   <br>
-</div>
+
 <div class="col-sm-10">
 
   <form [formGroup]="spotForm" (ngSubmit)="onSaveSpot()">
@@ -67,4 +71,9 @@ type="submit" [disabled]="spotForm.invalid || fileIsUploading">Enregistrer le sp
 <p>Il n'est pas possible d'enregistrer le spot tant que tous les champs ne sont pas remplit.</p>
 <br>
 </form>
+</div>
+
+<!-- End container -->
+</div>
+<!-- End jumbotron -->
 </div>
