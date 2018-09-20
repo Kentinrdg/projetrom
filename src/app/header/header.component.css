@@ -1,0 +1,12 @@
+.navbar-brand,
+.navbar-nav li a {
+    line-height: 75px;
+    height: 75px;
+    padding-top: 0;
+
+}
+
+.nav a{
+    /**color: white !important;**/
+    font-size: 1.3em !important;
+}

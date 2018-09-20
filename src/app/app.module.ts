@@ -55,7 +55,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCLbdTLUH4Bjck5jF9oruVdMEd9eOeDW14',
-      libraries: ["places"]
+      libraries: ['places']
     }),
     AgmJsMarkerClustererModule
   ],

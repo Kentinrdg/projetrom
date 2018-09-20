@@ -16,7 +16,8 @@ export class SinglespotComponent implements OnInit {
   lng: number;
 
   constructor(private route: ActivatedRoute, private spotService: SpotService,
-    private router: Router) { }
+    private router: Router) {
+     }
 
   ngOnInit() {
     this.spot = new Spot(0, '', '', '', 0, 0);

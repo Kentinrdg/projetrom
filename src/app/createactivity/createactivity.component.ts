@@ -7,7 +7,7 @@ import * as firebase from 'firebase';
 import { ElementRef, NgZone, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MapsAPILoader } from '@agm/core';
-
+import { } from 'googlemaps';
 
 
 @Component({
@@ -49,6 +49,7 @@ export class CreateactivityComponent implements OnInit {
     private router: Router,     private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone) {
       this.getKey();
+      this.initShape();
   }
 
   ngOnInit() {
@@ -72,12 +73,15 @@ export class CreateactivityComponent implements OnInit {
               }
     
               //set latitude, longitude and zoom
-             /** this.latitude = place.geometry.location.lat();
-              this.longitude = place.geometry.location.lng();
-              this.zoom = 12;**/
+              this.lat = place.geometry.location.lat();
+              this.lng = place.geometry.location.lng();
             });
           });
         });
+  }
+
+  initShape() {
+    this.currentSelectedValue = this.shapes[0].name;
   }
 
   changeShape(shape) {
