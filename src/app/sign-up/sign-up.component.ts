@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import { MyAuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -15,7 +15,7 @@ export class SignUpComponent implements OnInit {
   tool: string;
 
   constructor(private formBuilder: FormBuilder,
-              private authService: AuthService,
+              private authService: MyAuthService,
               private router: Router) { }
 
   ngOnInit() {
@@ -42,7 +42,7 @@ export class SignUpComponent implements OnInit {
     const email = this.signupForm.get('email').value;
     const password = this.signupForm.get('password').value;
     const password2 = this.signupForm.get('password2').value;
-
+    
     if (password === password2) {
     this.authService.createNewUser(email, password).then(
       () => {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../services/auth.service';
+import { MyAuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-auth-component',
@@ -14,7 +14,7 @@ export class AuthComponentComponent implements OnInit {
   errorMessage: string;
 
   constructor(private formBuilder: FormBuilder,
-              private authService: AuthService,
+              private authService: MyAuthService,
               private router: Router) { }
 
   ngOnInit() {

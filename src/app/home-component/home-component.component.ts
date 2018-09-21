@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service';
+import { MyAuthService } from '../services/auth.service';
 import * as firebase from 'firebase';
 import { Router } from '@angular/router';
 
@@ -12,7 +12,7 @@ export class HomeComponentComponent implements OnInit {
 
   isAuth: boolean;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: MyAuthService, private router: Router) { }
 
   ngOnInit() {
     firebase.auth().onAuthStateChanged(

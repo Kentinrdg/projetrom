@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service';
+import { MyAuthService } from '../services/auth.service';
 import * as firebase from 'firebase';
 
 @Component({
@@ -11,7 +11,7 @@ export class HeaderComponent implements OnInit {
 
   isAuth: boolean;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: MyAuthService) { }
 
   ngOnInit() {
     // Savoir si auth est connecté

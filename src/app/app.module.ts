@@ -10,7 +10,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AuthService } from './services/auth.service';
+import { MyAuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { CreateactivityComponent } from './createactivity/createactivity.component';
 import { ShowactivityComponent } from './showactivity/showactivity.component';
@@ -57,10 +57,10 @@ const appRoutes: Routes = [
       apiKey: 'AIzaSyCLbdTLUH4Bjck5jF9oruVdMEd9eOeDW14',
       libraries: ['places']
     }),
-    AgmJsMarkerClustererModule
+    AgmJsMarkerClustererModule,
   ],
   providers: [
-    AuthService,
+    MyAuthService,
     AuthGuardService,
     SpotService
   ],
