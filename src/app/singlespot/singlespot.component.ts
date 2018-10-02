@@ -25,10 +25,8 @@ export class SinglespotComponent implements OnInit {
     this.spotService.getSingleSpot(+id).then(
       (spot: Spot) => {
         this.spot = spot;
-        console.log(spot.photo);
       }
     );
-
     this.getCurrentPosition();
   }
 

@@ -38,9 +38,12 @@
 
           <blockquote class="blockquote">
               <footer class="blockquote-footer"><cite>Photo du lieu :</cite></footer> 
-             <img style="max-width:400px;"  
+              <div *ngFor="let photo of spot.photos">
+                <img src={{photo}} style="max-width:400px;"  onclick="window.open(this.src,'_blank','toolbar=0, location=0, directories=0, status=0, scrollbars=0, resizable=0, copyhistory=0, menuBar=0, width='+this.width+', height='+this.height);" />
+             </div>
+            <!-- <img *ngFor="let spot of spot.photos; let i = index" style="max-width:400px;"  
               onclick="window.open(this.src,'_blank','toolbar=0, location=0, directories=0, status=0, scrollbars=0, resizable=0, copyhistory=0, menuBar=0, width='+this.width+', height='+this.height);"  *ngIf="spot.photo" [src]="spot.photo">
-          </blockquote>
+            --></blockquote>
       <button class="btn btn-default" (click)="onBack()">Retour</button>
     </div>
   </div>

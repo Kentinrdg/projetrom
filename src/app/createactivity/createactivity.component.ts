@@ -8,6 +8,7 @@ import { ElementRef, NgZone, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MapsAPILoader } from '@agm/core';
 import { } from 'googlemaps';
+import { unescapeIdentifier } from '@angular/compiler';
 
 
 @Component({
@@ -34,6 +35,8 @@ export class CreateactivityComponent implements OnInit {
   fileUploaded = false;
 
   keyNum: number;
+
+  filesURLArray: string[] = [];
 
   shapes = [
     {id: '0', name: 'Marche'},
@@ -127,6 +130,12 @@ export class CreateactivityComponent implements OnInit {
     const typeSpot = this.currentSelectedValue;
     const latitudeSpot = this.lat;
     const longitudeSpot = this.lng;
+
+
+    if (this.keyNum === undefined) {
+      this.keyNum = 0;
+    }
+
     const index = this.keyNum;
 
     console.log(index);
@@ -139,10 +148,16 @@ export class CreateactivityComponent implements OnInit {
     const newSpot = new Spot(index, titleSpot, descriptionSpot, typeSpot, latitudeSpot, longitudeSpot);
     // Test si une photo est dispo
     console.log(this.fileUrl);
-    if (this.fileUrl && this.fileUrl !== '') {
+   /* if (this.fileUrl && this.fileUrl !== '') {
       newSpot.photo = this.fileUrl;
       }
 
+    */
+
+    if (this.filesURLArray.length > 0) {
+      newSpot.photos = this.filesURLArray;
+      console.log(newSpot.photos);
+    }
     this.spotService.createNewSpot(newSpot);
     this.router.navigate(['showactivity']);
   }
@@ -159,8 +174,30 @@ export class CreateactivityComponent implements OnInit {
       );
   }
 
+  onUploadFileArray(file: File) {
+    if (file) {
+
+        this.spotService.uploadFile(file).then(
+          (url: string) => {
+            this.filesURLArray.push(url);
+            this.fileIsUploading = false;
+            this.fileUploaded = true;
+          }
+        );
+    }
+  }
+
+
+
   detectFiles(event) {
-    this.onUploadFile(event.target.files[0]);
+    let files = event.target.files;
+    if (files) {
+      for (let file of files) {
+        this.onUploadFileArray(file);
+       // this.filesArray.push(file);
+      }
+    }
+    console.log(this.filesURLArray);
   }
 
 }

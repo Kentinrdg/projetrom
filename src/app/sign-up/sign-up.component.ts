@@ -30,7 +30,8 @@ export class SignUpComponent implements OnInit {
         Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
       ])],
       password: ['', [Validators.required, Validators.pattern(/[0-9a-zA-Z]{6,}/)]],
-      password2: ['', [Validators.required, Validators.pattern(/[0-9a-zA-Z]{6,}/)]]
+      password2: ['', [Validators.required, Validators.pattern(/[0-9a-zA-Z]{6,}/)]],
+      pseudo: [null, [Validators.required]]
     });
   }
 
@@ -42,6 +43,9 @@ export class SignUpComponent implements OnInit {
     const email = this.signupForm.get('email').value;
     const password = this.signupForm.get('password').value;
     const password2 = this.signupForm.get('password2').value;
+    const pseudo = this.signupForm.get('pseudo').value;
+
+    console.log(pseudo);
     
     if (password === password2) {
     this.authService.createNewUser(email, password).then(

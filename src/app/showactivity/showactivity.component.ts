@@ -80,7 +80,6 @@ export class ShowactivityComponent implements OnInit {
     this.spotSubscription = this.spotService.spotSubject.subscribe(
       (spots: Spot[]) => {
         this.spot = spots;
-        //console.log(spots.length);
       }
     );
     this.spotService.emitSpots();

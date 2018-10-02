@@ -1,5 +1,6 @@
 export class Spot {
     photo: string;
+    photos: string[];
 
     public index: number;
     public titleSpot: string;
