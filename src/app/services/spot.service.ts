@@ -52,6 +52,8 @@ getSingleSpot(id: number) {
 
 createNewSpot(newSpot: Spot) {
   this.spot.push(newSpot);
+  console.log('New spot');
+  console.log(newSpot.photos);
   this.saveSpots();
   this.emitSpots();
 }

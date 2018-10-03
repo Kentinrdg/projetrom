@@ -63,22 +63,5 @@ setCustomData(pseudo: string, email: string, city: string) {
 
 public getCustomUser() {
   return this.myUser;
-}
-
-/** 
-// Personnal connexion
-saveUser() {
-  firebase.database().ref('/users').set(this.user);
-}
-
-createNewPersonnalUser(newUser: User) {
-  this.user.push(newUser);
-  this.saveUser();
-  this.emitUser();
-}
-
-emitUser() {
-  this.userSubject.next(this.user);
-}*/
-
+  }
 }

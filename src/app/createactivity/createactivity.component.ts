@@ -38,11 +38,18 @@ export class CreateactivityComponent implements OnInit {
 
   filesURLArray: string[] = [];
 
+  username: string;
+
   shapes = [
     {id: '0', name: 'Marche'},
     {id: '1', name: 'Chill'},
     {id: '2', name: 'Peche'},
-    {id: '3', name: 'Autre'},
+    {id: '3', name: 'Running'},
+    {id: '4', name: 'Canoe'},
+    {id: '5', name: 'Skate'},
+    {id: '6', name: 'BMX'},
+    {id: '7', name: 'VTT'},
+    {id: '8', name: 'Autre'}
    ];
 
    @ViewChild('search')
@@ -81,6 +88,21 @@ export class CreateactivityComponent implements OnInit {
             });
           });
         });
+
+        var userId = firebase.auth().currentUser.uid;
+        return new Promise(
+          (resolve, reject) => {
+            firebase.database().ref('/users/' + userId).once('value').then(
+              (snapshot) => {
+                var username = (snapshot.val() && snapshot.val().pseudo);
+                this.username = username;
+                resolve(snapshot.val());
+              }, (error) => {
+                reject(error);
+              }
+            );
+          }
+        );
   }
 
   initShape() {
@@ -145,18 +167,11 @@ export class CreateactivityComponent implements OnInit {
     console.log(latitudeSpot);
     console.log(longitudeSpot);
 
-    const newSpot = new Spot(index, titleSpot, descriptionSpot, typeSpot, latitudeSpot, longitudeSpot);
+    const newSpot = new Spot(index, titleSpot, descriptionSpot, typeSpot, latitudeSpot, longitudeSpot, this.username);
     // Test si une photo est dispo
-    console.log(this.fileUrl);
-   /* if (this.fileUrl && this.fileUrl !== '') {
-      newSpot.photo = this.fileUrl;
-      }
 
-    */
-
-    if (this.filesURLArray.length > 0) {
+    if (this.filesURLArray.length > -1) {
       newSpot.photos = this.filesURLArray;
-      console.log(newSpot.photos);
     }
     this.spotService.createNewSpot(newSpot);
     this.router.navigate(['showactivity']);

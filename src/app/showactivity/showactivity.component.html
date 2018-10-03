@@ -9,6 +9,13 @@
   <p><i>Ici vous retrouvez tous les spots qui ont été rentrer par les utilisateurs.
     Il est possible de cliquer sur les marqueur, afin d'obtenir plus de précision concernant le spot.
   </i></p>
+
+  Filtrer par type d'activitée :         <select name="shape_id" class="form-control"  (change)="changeShape($event.target)">
+        <option *ngFor="let shape of shapes" [value]="shape.id">
+          {{shape.name}}
+        </option>
+      </select>
+  <br>
 </div>
 <div class="container">
     <agm-map [latitude]="lat" [longitude]="lng">
