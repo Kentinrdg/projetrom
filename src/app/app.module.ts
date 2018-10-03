@@ -19,6 +19,7 @@ import { AgmCoreModule } from '@agm/core';
 import { SpotService } from './services/spot.service';
 import { SinglespotComponent } from './singlespot/singlespot.component';
 import { AgmJsMarkerClustererModule } from '@agm/js-marker-clusterer';
+import { MyaccountComponent } from './myaccount/myaccount.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponentComponent },
@@ -27,10 +28,11 @@ const appRoutes: Routes = [
   { path: 'aboutus', component: AboutUsComponent},
   { path: 'createactivity', canActivate: [AuthGuardService], component: CreateactivityComponent},
   { path: 'showactivity', canActivate: [AuthGuardService], component: ShowactivityComponent},
+  { path: 'myaccount', canActivate: [AuthGuardService], component: MyaccountComponent},
   { path: 'singlespot/:id', canActivate: [AuthGuardService], component: SinglespotComponent},
   { path: 'not-found', component: NotFoundComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  //Mettre cela à la fin est nécessaire 
+  // Mettre cela à la fin est nécessaire 
   { path: '**', redirectTo: 'home'}
 ];
 
@@ -45,7 +47,8 @@ const appRoutes: Routes = [
     CreateactivityComponent,
     ShowactivityComponent,
     HeaderComponent,
-    SinglespotComponent
+    SinglespotComponent,
+    MyaccountComponent
   ],
   imports: [
     BrowserModule,

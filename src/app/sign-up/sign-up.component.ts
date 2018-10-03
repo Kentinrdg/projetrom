@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MyAuthService } from '../services/auth.service';
+import { User } from '../models/user.models';
 
 @Component({
   selector: 'app-sign-up',
@@ -13,6 +14,8 @@ export class SignUpComponent implements OnInit {
   signupForm: FormGroup;
   errorMessage: string;
   tool: string;
+
+  newUser: User;
 
   constructor(private formBuilder: FormBuilder,
               private authService: MyAuthService,
@@ -31,7 +34,8 @@ export class SignUpComponent implements OnInit {
       ])],
       password: ['', [Validators.required, Validators.pattern(/[0-9a-zA-Z]{6,}/)]],
       password2: ['', [Validators.required, Validators.pattern(/[0-9a-zA-Z]{6,}/)]],
-      pseudo: [null, [Validators.required]]
+      pseudo: [null, [Validators.required]],
+      ville: [null, [Validators.required]]
     });
   }
 
@@ -44,11 +48,11 @@ export class SignUpComponent implements OnInit {
     const password = this.signupForm.get('password').value;
     const password2 = this.signupForm.get('password2').value;
     const pseudo = this.signupForm.get('pseudo').value;
+    const ville = this.signupForm.get('ville').value;
 
-    console.log(pseudo);
-    
     if (password === password2) {
-    this.authService.createNewUser(email, password).then(
+      this.authService.setCustomData(pseudo, email, ville);
+      this.authService.createNewUser(email, password).then(
       () => {
         this.router.navigate(['/showactivity']);
       },
@@ -56,6 +60,8 @@ export class SignUpComponent implements OnInit {
         this.errorMessage = error;
       }
     );
+   // this.newUser = new User(email, password, pseudo);
+   // this.authService.createNewPersonnalUser(this.newUser);
   } else {
     this.tool = '    <p>Les mots de passes ne correspondent pas.</p>';
   }

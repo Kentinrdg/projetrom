@@ -17,5 +17,4 @@ export class Spot {
         this.latitude = latitude;
         this.longitude = longitude;
     }
-
 }

@@ -8,6 +8,13 @@ export class MyAuthService {
 
   user: User[] = [];
   userSubject = new Subject<User[]>();
+
+  myUser: User;
+
+  pseudo: string;
+  email: string;
+  city: string;
+
   constructor() { }
 
   // Creation d'un nouvel utilisateur.
@@ -48,6 +55,17 @@ signOutUser() {
   firebase.auth().signOut();
 }
 
+// See how put uid after connesxion
+setCustomData(pseudo: string, email: string, city: string) {
+  this.myUser = new User(email, pseudo, city);
+//  firebase.database().ref('/users').child(this.myUser.key).set(this.myUser);
+}
+
+public getCustomUser() {
+  return this.myUser;
+}
+
+/** 
 // Personnal connexion
 saveUser() {
   firebase.database().ref('/users').set(this.user);
@@ -61,6 +79,6 @@ createNewPersonnalUser(newUser: User) {
 
 emitUser() {
   this.userSubject.next(this.user);
-}
+}*/
 
 }
